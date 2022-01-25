@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EXEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="StudentsDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+          <Property Name="BirthDate" Type="nvarchar" MaxLength="200" />
+          <Property Name="BirthCountry" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gender" Type="nvarchar(max)" />
+          <Property Name="Class" Type="nvarchar" MaxLength="10" />
+          <Property Name="QuestionnaireStatus" Type="nvarchar" MaxLength="30" />
+          <Property Name="PersonalPlanStatus" Type="nvarchar" MaxLength="30" />
+          <Property Name="StudentStatus" Type="nvarchar" MaxLength="30" />
+          <Property Name="StudentType" Type="nvarchar" MaxLength="100" />
+          <Property Name="PrevID" Type="nvarchar" MaxLength="30" />
+          <Property Name="StudentImage" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="EXEModelStoreContainer">
+          <EntitySet Name="StudentsDetails" EntityType="Self.StudentsDetails" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EXEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="StudentsDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="BirthCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Class" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="QuestionnaireStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="PersonalPlanStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="StudentStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="StudentType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PrevID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="StudentImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="EXEEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="StudentsDetails" EntityType="Self.StudentsDetails" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EXEModelStoreContainer" CdmEntityContainer="EXEEntities">
+          <EntitySetMapping Name="StudentsDetails">
+            <EntityTypeMapping TypeName="EXEModel.StudentsDetails">
+              <MappingFragment StoreEntitySet="StudentsDetails">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="BirthCountry" ColumnName="BirthCountry" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="QuestionnaireStatus" ColumnName="QuestionnaireStatus" />
+                <ScalarProperty Name="PersonalPlanStatus" ColumnName="PersonalPlanStatus" />
+                <ScalarProperty Name="StudentStatus" ColumnName="StudentStatus" />
+                <ScalarProperty Name="StudentType" ColumnName="StudentType" />
+                <ScalarProperty Name="PrevID" ColumnName="PrevID" />
+                <ScalarProperty Name="StudentImage" ColumnName="StudentImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

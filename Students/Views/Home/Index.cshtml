@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>תלמידים</h2>
+
+<div class="container" ng-app="studentsTable">
+    <div ng-controller="HomeCtrl">
+
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group pull-left">
+
+                    <label>
+                        <input type="text" class="form-control" ng-model="search.FirstName" placeholder="חיפוש לפי שם" />
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <table class="table able-striped table-hover">
+            <thead>
+                <tr>
+
+                    <th ng-click="sort('ID')">
+                        תעודת זהות
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='ID'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('FirstName')">
+                        שם פרטי
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='FirstName'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('LastName')">
+                        שם משפחה
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='LastName'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('DateOfBirth')">
+                        תאריך לידה
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='BirthDate'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('CountryOfBirth')">
+                        ארץ לידה
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='BirthCountry'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('Gender')">
+                        מגדר
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='Gender'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('Class')">
+                        כיתה
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='Grade'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('QuestionnaireStatus')">
+                        סטטוס שאלון
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='QuestionnaireStatus'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('PersonalPlanStatus')">
+                        סטטוס תוכנית אישית
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='PersonalPlanStatus'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('StudentStatus')">
+                        סטטוס תלמיד
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='StudentStatus'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('StudentType')">
+                        סוג תלמיד
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='StudentType'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('PrevID')">
+                        מ. זיהוי קודם
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='OldStudentId'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr dir-paginate="student in students|orderBy:sortKey:reverse | filter:search| itemsPerPage:2 ">
+
+
+                    <td>{{ student.ID }}</td>
+                    <td>{{ student.FirstName }}</td>
+                    <td>{{student.LastName}}</td>
+                    <td>{{student.BirthDate}}</td>
+                    <td>{{student.BirthCountry}}</td>
+                    <td>{{student.Gender}}</td>
+                    <td>{{student.Class}}</td>
+                    <td>{{student.QuestionnaireStatus}}</td>
+                    <td>{{student.PersonalPlanStatus}}</td>
+                    <td>{{student.StudentStatus}}</td>
+                    <td>{{student.StudentType}}</td>
+                    <td>{{student.PrevID}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+        <dir-pagination-controls max-size="2"
+                                 direction-links="true"
+                                 boundary-links="true">
+        </dir-pagination-controls>
+        @*<ul uib-pagination total-items="students.length" ng-model="currentPage" max-size="5" items-per-page="itemsPerPage" boundary-links="true" num-pages="numPages"></ul>*@
+    </div>
+</div>
+
